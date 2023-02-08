@@ -1,0 +1,25 @@
+name : build and deploy with ssh & rsync
+on : 
+  push:
+   branches: [main]
+  pull_request:
+   branches: [main]
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+    - name: checkoutcode
+      uses: actions/checkout@v2
+    - name: rsync
+      uses: inf166/action-sshpass-rsync@v1
+      with:
+       host: ${{secrets.HOST}}
+       user: ${{secrets.USER}}
+       pass: ${{secrets.PASS}}
+       local: "*"
+       remote: "~/my-project"
+#        runBeforeDeployment: |
+#         cd somewhere/
+       runAfterDeployment: |
+        echo "first line" >> echofile1.txt
+        echo "second line" >> echofile2.txt
