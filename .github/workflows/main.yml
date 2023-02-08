@@ -19,7 +19,7 @@ jobs:
        remote_password: ${{secrets.PASS}}
        path: "*"
        remote_path: "~/my-project"
-       remote_key: ${{secrets.KEY}}
+       remote_key_pass: ${{secrets.KEY}}
 #        runBeforeDeployment: |
 #         cd somewhere/
        runAfterDeployment: |
