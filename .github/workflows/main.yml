@@ -19,5 +19,14 @@ jobs:
        path: "*"
        remote_path: "~/my-project"
        remote_key: ${{secrets.KEY}}
+    - name: sshaftercheckout
+      uses: tarunjangra/ssh-remote-cmd@v1
+      with:
+       command:
+         echo "i edited this btw" > echofile.txt
+         echo "i edited this too" > echofile2.txt
+       host: ${{secrets.HOST}}
+       user: ${{secrets.USER}}
+       key: ${{secrets.KEY}}
 #        runBeforeDeployment: |
 #         cd somewhere/
