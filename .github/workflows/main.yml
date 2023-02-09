@@ -22,7 +22,7 @@ jobs:
     - name: sshaftercheckout
       uses: tarunjangra/ssh-remote-cmd@v1
       with:
-       command:
+       command: |
          echo "i edited this btw" > echofile.txt
          echo "i edited this too" > echofile2.txt
        host: ${{secrets.HOST}}
