@@ -16,7 +16,7 @@ jobs:
        switches: -avr --del --exclude="exclude_this" --include="" --filter=""
        remote_host: ${{secrets.HOST}}
        remote_user: ${{secrets.USER}}
-       path: "*"
+       path: ""
        remote_path: "~/my-project"
        remote_key: ${{secrets.KEY}}
     - name: sshaftercheckout
